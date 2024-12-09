@@ -1,0 +1,338 @@
+// Oluwaseun Fashina, Michael Timitimi, Mshari Alharbi
+
+import java.util.Scanner;
+import java.io.FileOutputStream;
+import java.io.IOException;
+public class project1{
+
+    public static class RestaurantMenu {
+        //Prices for food//
+    final private static double pizzaPrice = 14.99;
+        final private double burgerPrice = 7.59;
+        final private  double pastaPrice = 8.00;
+        final private  double saladPrice = 8.20;
+        final private  double sandwichPrice = 8.40;
+        final private  double sushiPrice = 9.75;
+        final private  double tacosPrice = 11.28;
+        final private  double steakPrice = 20.22;
+        final private  double soupPrice = 6.50;
+        final private  double friesPrice = 2.00;
+        final private  double waterPrice = 2.50;
+        final private  double sodaPrice = 3.50;
+        final private  double coffeePrice = 3.20;
+        final private  double teaPrice = 3.50;
+        final private  double juicePrice = 2.10;
+        public String name;
+    
+       //constructors//
+       public RestaurantMenu(String name){
+                this.name = name;
+           }
+           //getters and setters//
+            public double getPizzaPrice() {
+                   return pizzaPrice;
+           }
+       
+           public  double getBurgerPrice() {
+               return burgerPrice;
+           }
+       
+           public  double getPastaPrice() {
+               return pastaPrice;
+            }
+               
+               public double getSaladPrice() {
+               return saladPrice;
+           }
+       
+           public double getSandwichPrice() {
+               return sandwichPrice;
+           }
+       
+           public double getSushiPrice() {
+               return sushiPrice;
+           }
+       
+           public double getTacosPrice() {
+               return tacosPrice;
+           }
+       
+           public double getSteakPrice() {
+               return steakPrice;
+           }
+       
+           public double getSoupPrice() {
+               return soupPrice;
+           }
+           public double getFriesPrice(){
+            return friesPrice;
+           }
+       
+           public double getWaterPrice() {
+               return waterPrice;
+           }
+       
+           public double getSodaPrice() {
+               return sodaPrice;
+           }
+       
+           public double getCoffeePrice() {
+               return coffeePrice;
+           }
+       
+           public double getTeaPrice() {
+               return teaPrice;
+           }
+       
+           public double getJuicePrice() {
+               return juicePrice;
+           }
+           public String getName() {
+                       return name;
+                   }
+                  
+                  }
+              
+              
+              // menu//
+                  public static void displayMenu() {
+                      System.out.println("------ Welcome to the Menu! ------");
+                      System.out.println("Food Items:");
+                      System.out.println("1. Pizza -> $14.99");
+                      System.out.println("2. Burger -> $7.59");
+                      System.out.println("3. Pasta -> $8.00");
+                      System.out.println("4. Salad -> $8.20");
+                      System.out.println("5. Sandwich -> $8.40");
+                      System.out.println("6. Sushi -> $9.75");
+                      System.out.println("7. Tacos -> $11.28");
+                      System.out.println("8. Steak -> $20.22");
+                      System.out.println("9. Soup -> $6.50");
+                      System.out.println("10. Fries -> $2.00");
+              
+                      System.out.println("\nDrinks:");
+                      System.out.println("11. Water -> $2.50");
+                      System.out.println("12. Soda -> $3.50");
+                      System.out.println("13. Coffee -> $3.20");
+                      System.out.println("14. Tea -> $3.50");
+                      System.out.println("15. Juice -> $2.10");
+              
+                      System.out.println("-----------------------------------");
+                  }
+              
+              
+                  public static void main(String[] args) {
+              
+                    //declaring variables needed for project//
+                      boolean done = false;
+                      double totalCost = 0 ;
+                      String name;
+                      int choice;
+                      String YorN;
+                      int amount;
+                      String [] receipt = new String[100];
+                      int i = 0;
+                      int orders= 0;
+                      double current = 0;
+              
+                      //scanenrs//
+                      Scanner scanner = new Scanner(System.in);
+                      Scanner scnr = new Scanner(System.in);
+                      Scanner scnrString = new Scanner(System.in);
+                      
+                      //gets name for the order//
+                      System.out.println("First please enter a name for the order");
+                      name = scnr.nextLine();
+                   RestaurantMenu rMenu = new RestaurantMenu(name);
+                   
+                
+                   //the main resteraunt ordering system//
+                   while(!done){
+                   orders = orders + 1;
+                  System.out.println("Hello " + rMenu.getName() + " what would you like to order.(Type the number you want and hit enter)");
+       displayMenu();
+       choice = scnr.nextInt();
+     
+switch(choice){
+
+    case 1:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + "    Pizza(s) Added.");
+    current = amount * rMenu.getPizzaPrice();
+    totalCost = totalCost + (amount * rMenu.getPizzaPrice());
+    receipt[i]= "Pizza         $" +current +"\n \n";
+    break;
+
+    case 2:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Burger(s) Added.");
+    current = amount * rMenu.getBurgerPrice();
+    totalCost = totalCost + (amount * rMenu.getBurgerPrice());
+    receipt[i]= "Burger        $" +current +"\n \n";
+    break;
+
+    case 3:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Pasta(s) Added.");
+    current = amount * rMenu.getPastaPrice();
+    totalCost = totalCost + (amount * rMenu.getPastaPrice());
+    receipt[i]= "Pasta         $" +current +"\n \n";
+    break;
+
+    case 4:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Salad(s) Added.");
+    current = amount * rMenu.getSaladPrice();
+    totalCost = totalCost + (amount * rMenu.getSaladPrice());
+    receipt[i]= "Salad         $" +current +"\n \n";
+    break;
+
+    case 5:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Sandwich(s) Added.");
+    current = amount * rMenu.getSandwichPrice();
+    totalCost = totalCost + (amount * rMenu.getSandwichPrice());
+    receipt[i]= "Sandwich      $" +current +"\n \n";
+    break;
+
+    case 6:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Sushi(s) Added.");
+    current = amount * rMenu.getSushiPrice();
+    totalCost = totalCost + (amount * rMenu.getSushiPrice());
+    receipt[i]= "Sushi         $" +current +"\n \n";
+    break;
+
+    case 7:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Tacos(s) Added.");
+    current = amount * rMenu.getTacosPrice();
+    totalCost = totalCost + (amount * rMenu.getTacosPrice());
+    receipt[i]= "Tacos         $" +current +"\n \n";
+    break;
+
+    case 8:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Steak(s) Added.");
+    current = amount * rMenu.getSteakPrice();
+    totalCost = totalCost + (amount * rMenu.getSteakPrice());
+    receipt[i]= "Steak         $" +current +"\n \n";
+    break;
+
+    case 9:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Soup(s) Added.");
+    current = amount * rMenu.getSoupPrice();
+    totalCost = totalCost + (amount * rMenu.getSoupPrice());
+    receipt[i]= "Soup          $" +current +"\n \n";
+    break;
+
+    case 10:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Fries Added.");
+    current = amount * rMenu.getFriesPrice();
+    totalCost = totalCost + (amount * rMenu.getFriesPrice());
+    receipt[i]= "Fries         $" +current +"\n \n";
+    break;
+
+
+    case 11:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Water(s) Added.");
+    current = amount * rMenu.getWaterPrice();
+    totalCost = totalCost + (amount * rMenu.getWaterPrice());
+    receipt[i]= "Water         $" +current +"\n \n";
+    break;
+
+    case 12:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Soda(s) Added.");
+    current = amount * rMenu.getSodaPrice();
+    totalCost = totalCost + (amount * rMenu.getSodaPrice());
+    receipt[i]= "Soda          $" +current +"\n \n";
+    break;
+
+    case 13:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Coffee(s) Added.");
+    current = amount * rMenu.getCoffeePrice();
+    totalCost = totalCost + (amount * rMenu.getCoffeePrice());
+    receipt[i]= "Coffee        $" +current +"\n \n";
+    break;
+
+    case 14:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Tea(s) Added.");
+    current = amount * rMenu.getTeaPrice();
+    totalCost = totalCost + (amount * rMenu.getTeaPrice());
+    receipt[i]= "Tea           $" +current +"\n \n";
+    break;
+
+    case 15:
+    System.out.println("How much would you like to add");
+    amount = scanner.nextInt();
+    System.out.println(amount + " Juice(s) Added.");
+    current = amount * rMenu.getJuicePrice();
+    totalCost = totalCost + (amount * rMenu.getJuicePrice());
+    receipt[i]= "Juice         $" +current +"\n \n";
+    break;
+
+}
+// asks if they want to continue//
+
+System.out.println("Would you like to order another option (YES or NO)");
+YorN = scnrString.nextLine();
+
+boolean YN = true;
+while(YN){  
+   if(YorN.equalsIgnoreCase("Yes")){
+        done = false;
+        YN = false;
+    }else if (YorN.equalsIgnoreCase("No")){
+        done = true;
+        YN = false;
+    }else{
+        YN = true;
+    }
+}
+i++;
+}
+System.out.printf("Your total is $ %.2f",totalCost);
+
+//receipt//
+String beginning = " Your receipt:\n";
+String ending = String.format("Total cost    $%.2f" , totalCost);
+String lines = "----------------------------\n";
+try(FileOutputStream fos = new FileOutputStream("receipt.txt")){
+    fos.write(beginning.getBytes());
+    for(int j = 0; j < orders; j++){
+fos.write(receipt[j].getBytes());
+    }
+fos.write(lines.getBytes());
+fos.write(ending.getBytes());
+    
+}catch(IOException e){
+    System.out.println("An error has occured");
+e.printStackTrace();
+}
+ 
+
+System.gc();
+ }
+}
+        
+
+                  
